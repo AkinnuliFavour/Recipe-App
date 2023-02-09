@@ -12,6 +12,7 @@ const Home = ({ meals }: { meals: stateType[] }) => {
           {meals.map((meal) => (
             <Link to={`/single-meal-page/${meal.id}`} key={meal.id}>
               <figure>
+                <img src={meal.strMealThumb} alt="" />
                 <figcaption>{meal.strMeal}</figcaption>
               </figure>
             </Link>
