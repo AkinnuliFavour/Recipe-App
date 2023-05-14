@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import api from "./api/meal";
-import Home from "./Home";
+import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-export type stateType = {
-  id: string;
-  strMeal: string;
-  strMealThumb: string;
-};
+import SingleMealPage from "./pages/SingleMealPage";
+import { stateType } from "./utils/types";
 
 function App() {
   const [meals, setMeals] = useState<stateType[] | []>([]);
@@ -39,6 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home meals={meals} />} />
+          <Route path="/single-meal/:id" element={<SingleMealPage />} />
         </Routes>
       </BrowserRouter>
     </main>
