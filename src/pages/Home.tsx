@@ -1,5 +1,5 @@
 import React from "react";
-import { stateType } from "../App";
+import { stateType } from "../utils/types";
 import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 
