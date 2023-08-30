@@ -13,7 +13,7 @@ const Home = ({ meals }: { meals: stateType[] }) => {
             <Link to={`/single-meal/${meal.idMeal}`} key={meal.idMeal}>
               <figure>
                 <img src={meal.strMealThumb} alt="" />
-                <figcaption>{meal.strMeal}</figcaption>
+                <figcaption className="font-semibold mt-2">{meal.strMeal}</figcaption>
               </figure>
             </Link>
           ))}
