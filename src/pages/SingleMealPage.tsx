@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/meal";
 import { mealObjectType } from "../utils/types";
+import Nav from "../components/Nav";
 
 const SingleMealPage = () => {
   const { id } = useParams();
@@ -38,36 +39,38 @@ const SingleMealPage = () => {
 
   mealObject ? console.log() : null;
   return (
-    <main className="flex p-6">
-      {mealObject &&
-        mealObject.meals.map((meal, idx) => (
-          <section
-            key={idx}
-            className="grid lg:grid-cols-2 gap-4 border border-secondary p-4 shadow-md shadow-main rounded-md"
-          >
-            <img src={meal.strMealThumb} alt="" />
-            <div className="lg:mt-12">
-              <p className="text-center text-primary text-xl font-bold">
-                {meal.strMeal}
-              </p>
-              <h3 className="mt-8 text-center text-primary text-xl font-bold">
-                Ingridents
-              </h3>
-              <ul className="bg-secondary px-6 py-4 text-primary mt-4 rounded-md">
-                {ingridentsArr?.map((ingridents) =>
-                  ingridents.map((ingrident) => <li>{meal[ingrident]}</li>)
-                )}
-              </ul>
-              <h3 className="mt-8 text-center text-primary text-xl font-bold">
-                Instructions
-              </h3>
-              <p className="bg-secondary px-6 py-4 text-primary mt-4 rounded-md">
-                {meal.strInstructions}
-              </p>
-            </div>
-          </section>
-        ))}
-    </main>
+    <>
+      <Nav />
+      <main className="flex p-6">
+          {mealObject?.meals.map((meal, idx) => (
+            <section
+              key={idx}
+              className="grid lg:grid-cols-2 gap-4 border border-secondary p-4 shadow-md shadow-main rounded-md"
+            >
+              <img src={meal.strMealThumb} alt="" />
+              <div className="lg:mt-12">
+                <p className="text-center text-3xl text-gray-600 font-bold italic underline">
+                  {meal.strMeal}
+                </p>
+                <h3 className="mt-8 text-center text-xl font-bold">
+                  Ingridents
+                </h3>
+                <ul className=" border border-secondary px-6 py-4 text-gray-600 font-semibold mt-2 rounded-md">
+                  {ingridentsArr?.map((ingridents) =>
+                    ingridents.map((ingrident) => <li className="list-disc">{meal[ingrident]}</li>)
+                  )}
+                </ul>
+                <h3 className="mt-8 text-center text-xl font-bold">
+                  Instructions
+                </h3>
+                <p className="border border-secondary mt-2 px-6 py-4 text-gray-600 font-semibold rounded-md">
+                  {meal.strInstructions}
+                </p>
+              </div>
+            </section>
+          ))}
+      </main>
+    </>
   );
 };
 

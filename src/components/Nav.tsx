@@ -1,11 +1,10 @@
 import React from "react";
-import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav className="bg-green-500 p-6 mb-2 flex justify-between">
-      <h3>Recipe Box</h3>
-      <FaBars />
+    <nav className="bg-primary  p-6 mb-2 flex justify-between sticky top-0 opacity-90">
+      <Link to='/' className="font-semibold text-2xl text-gray-700">Recipe Box</Link>
     </nav>
   );
 };
